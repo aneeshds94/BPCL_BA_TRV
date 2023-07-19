@@ -1,4 +1,6 @@
 import random
+import time
+from send_email import send_email
 
 
 def get_names(filepath='employee_list.txt'):
@@ -20,6 +22,16 @@ def post_time(last_time):
 def generate_name(name_list):
     try:
         random_name = random.choice(name_list)
+        message = f"""\
+Subject: IOCL BA Test
+
+The following employee has been selected for BA test:
+{random_name}
+"""
+        send_email(message)
         return random_name
     except:
         pass
+
+
+

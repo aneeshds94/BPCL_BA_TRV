@@ -2,7 +2,7 @@ import random
 import time
 from send_email import send_email
 
-
+date = time.strftime("%d/%m/%Y")
 def get_names(filepath='employee_list.txt'):
     with open(filepath, 'r') as file:
         return file.readlines()
@@ -19,13 +19,13 @@ def post_time(last_time):
         file.write(str(last_time))
 
 
-def generate_name(name_list):
+def generate_name(name_list, shift):
     try:
         random_name = random.choice(name_list)
         message = f"""\
 Subject: IOCL BA Test
 
-The following employee has been selected for BA test:
+The following employee has been selected for BA test on {date} Shift {shift}:
 {random_name}
 """
         send_email(message)

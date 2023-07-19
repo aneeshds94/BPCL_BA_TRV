@@ -17,9 +17,11 @@ st.info(time.strftime("%b %d, %Y %H:%M:%S"))
 names = functions.get_names()
 # declaring in_shift variable
 in_shift = []
-
+shifts = ['Select from dropdown', 'A : 0600 hrs - 1400 hrs', 'B : 1400 hrs - 2200 hrs', 'C : 2200 hrs - 0600 hrs']
 # Form
 with st.form(key="ba_form"):
+    shift = st.selectbox("Select shift from dropdown: ", shifts)
+    print(shift)
     # Selection of employees using checkbox
     st.info("Select employees available in shift from list below: ")
     for index, name in enumerate(names):
@@ -31,11 +33,14 @@ with st.form(key="ba_form"):
     button = st.form_submit_button("Generate")
 
     # Button press functionality
-    if button:
+    if button and shift != 'Select from dropdown':
         # Checking time elapsed
         if current_time - last_time > 30.0:
-            random_name = functions.generate_name(in_shift)
+            random_name = functions.generate_name(in_shift, shift)
             st.info(random_name)
             functions.post_time(str(current_time))
         else:
             st.info("Button deactivated")
+
+    elif button and shift == 'Select from dropdown':
+        st.info("Select shift!")

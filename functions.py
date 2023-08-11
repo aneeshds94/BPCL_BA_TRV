@@ -1,8 +1,10 @@
 import random
-import time
 from send_email import send_email
+import timer
 
-date = time.strftime("%d/%m/%Y")
+date = timer.get_display_datetime()[1]
+
+
 def get_names(filepath='employee_list.txt'):
     with open(filepath, 'r') as file:
         return file.readlines()

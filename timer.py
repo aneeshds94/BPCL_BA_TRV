@@ -1,12 +1,23 @@
 import time
+from datetime import datetime
+import pytz
 
-current_time = time.time()
+
+# for calculating difference in time between two runs
+def get_current_time():
+    current_time = time.time()
+    return current_time
 
 
-with open ('time.txt', 'r') as file:
-    last_time = float(file.read())
+# IST for display
+def get_display_datetime():
+    ist = pytz.timezone("Asia/Kolkata")
+    datetime_ist = datetime.now(ist)
+    display_time = datetime_ist.strftime("%d-%m-%Y %H:%M:%S")
+    date = datetime_ist.strftime("%d-%m-%Y")
+    return display_time, date
 
-print(current_time)
-print(last_time)
 
-if last_time - current
+
+
+

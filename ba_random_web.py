@@ -1,27 +1,34 @@
 import streamlit as st
-import time
 import functions
+import timer
 
 # Setting page width as wide
 st.set_page_config(layout='wide')
+
 # getting times
-current_time = time.time()
+current_time = timer.get_current_time()
+display_time, date = timer.get_display_datetime()
+print(date)
 last_time = float(functions.get_time())
 
 # Heading area
 st.subheader("Indian Oil Corporation Ltd. Trivandrum AFS")
 st.subheader("BA Random Generator Tool")
-st.info(time.strftime("%b %d, %Y %H:%M:%S"))
+st.info(display_time)
 
 # Getting names from file
 names = functions.get_names()
 # declaring in_shift variable
 in_shift = []
-shifts = ['Select from dropdown', 'A : 0600 hrs - 1400 hrs', 'B : 1400 hrs - 2200 hrs', 'C : 2200 hrs - 0600 hrs']
+shifts = ['Select from dropdown',
+          'A : 0600 hrs - 1400 hrs',
+          'B : 1400 hrs - 2200 hrs',
+          'C : 2200 hrs - 0600 hrs']
+
 # Form
 with st.form(key="ba_form"):
     shift = st.selectbox("Select shift from dropdown: ", shifts)
-    print(shift)
+
     # Selection of employees using checkbox
     st.info("Select employees available in shift from list below: ")
     for index, name in enumerate(names):

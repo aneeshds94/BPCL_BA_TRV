@@ -44,10 +44,14 @@ with st.form(key="ba_form"):
         # Checking time elapsed
         if current_time - last_time > 30.0:
             random_name = functions.generate_name(in_shift, shift)
-            st.info(random_name)
+            random_display = f"{random_name} has been selected for BA test on " \
+                             f"{date} for shift {shift}"
+            st.info(random_display)
             functions.post_time(str(current_time))
+            functions.write_data(display_time, shift, random_name)
         else:
-            st.info("Button deactivated")
+            st.info("Button deactivated. Person already selected for BA test. "
+                    "Refer history section for more details")
 
     elif button and shift == 'Select from dropdown':
         st.info("Select shift!")

@@ -44,7 +44,7 @@ with st.form(key="ba_form"):
         # Checking time elapsed
         if current_time - last_time > 30.0:
             random_name = functions.generate_name(in_shift, shift)
-            random_display = f"{random_name} has been selected for BA test on " \
+            random_display = f"{random_name} has been selected for BA test on \n" \
                              f"{date} for shift {shift}"
             st.info(random_display)
             functions.post_time(str(current_time))

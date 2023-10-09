@@ -42,7 +42,7 @@ with st.form(key="ba_form"):
     # Button press functionality
     if button and shift != 'Select from dropdown':
         # Checking time elapsed
-        if current_time - last_time > 30.00:
+        if current_time - last_time > 7200.00:
             random_name = functions.generate_name(in_shift, shift)
             random_display = f"{random_name} has been selected for BA test on \n" \
                              f"{date} for shift {shift}"

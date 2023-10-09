@@ -48,7 +48,7 @@ with st.form(key="ba_form"):
                              f"{date} for shift {shift}"
             st.info(random_display)
             functions.post_time(str(current_time))
-            functions.write_data(display_time, shift, random_name)
+
         else:
             st.info("Button deactivated. Person already selected for BA test. "
                     )

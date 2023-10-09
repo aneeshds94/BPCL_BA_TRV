@@ -36,13 +36,3 @@ The following employee has been selected for BA test on {date} Shift {shift}:
     except:
         pass
 
-
-def write_data(display_time, shift, random_name):
-    df = pd.read_csv("history.csv")
-    df = pd.DataFrame(df)
-    new_row = {"Date": [display_time], "Shift": [shift],
-               "Name": [random_name]}
-    df2 = pd.DataFrame.from_dict(new_row)
-
-    df3 = pd.concat([df, df2], ignore_index=True)
-    df3.to_csv("history.csv", index=False)

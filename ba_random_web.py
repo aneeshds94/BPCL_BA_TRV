@@ -12,7 +12,7 @@ print(date)
 last_time = float(functions.get_time())
 
 # Heading area
-st.subheader("Indian Oil Corporation Ltd. Trivandrum AFS")
+st.subheader("Indian Oil Corporation Ltd. Calicut AFS")
 st.subheader("BA Random Generator Tool")
 st.info(display_time)
 
@@ -51,7 +51,7 @@ with st.form(key="ba_form"):
             functions.write_data(display_time, shift, random_name)
         else:
             st.info("Button deactivated. Person already selected for BA test. "
-                    "Refer history section for more details")
+                    )
 
     elif button and shift == 'Select from dropdown':
         st.info("Select shift!")

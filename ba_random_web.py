@@ -12,7 +12,7 @@ print(date)
 last_time = float(functions.get_time())
 
 # Heading area
-st.subheader("Indian Oil Corporation Ltd. Calicut AFS")
+st.subheader("Bharat Petroleum Corporation Ltd. Trivandrum AFS")
 st.subheader("BA Random Generator Tool")
 st.info(display_time)
 

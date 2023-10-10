@@ -26,7 +26,7 @@ def generate_name(name_list, shift):
     try:
         random_name = random.choice(name_list)
         message = f"""\
-Subject: IOCL BA Test
+Subject: BPCL BA Test
 
 The following employee has been selected for BA test on {date} Shift {shift}:
 {random_name}
